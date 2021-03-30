@@ -1,0 +1,28 @@
+body {
+  background: #fcf4ef;
+}
+
+.formulario {
+  background: #dbd3ce;
+  /*background: linear-gradient(to bottom right,#636981,#DBD3CE);*/
+  padding: 50px;
+  color: #878482;
+}
+
+.botonLogin {
+  background: #2e394b;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+#link {
+  color: #f3896b;
+}
+
+*input:focus{
+    outline: none;
+}
+
+
