@@ -1,1 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+$dark-color: #2E394B;
+$dark-gray-color: #DEDEDE;
+$orange-color: #FF4600;
+$darker-gray: #858585;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body, html {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: #FFFFFF !important;
+}
+
+input,
+button {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+form {
+  width: 100%;
+}
+
+.glass-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  background-color: rgba($color: #DEDEDE, $alpha: 0.35);
+  box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.16);
+  border: 1px solid rgba($color: #ffffff, $alpha: 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.gray-button {
+  background-color: $dark-color !important;
+  color: #FFF !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+input {
+  border: none !important;
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="email"] {
+  box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.16) !important;
+}
+
+.text-gray-darker {
+  color: $darker-gray;
+}
+
+.text-primary-dark {
+  color: $dark-color !important;
+}
+
+@mixin font-size($min: 1, $max: 50, $step: 1, $class: 'font-size') {
+  @while $min <= $max {
+    .#{$class}-#{$min} {
+      font-size: #{$min + 'px'};
+    }
+    $min: $min + $step;
+  }
+}
+
+@include font-size();
