@@ -1,0 +1,24 @@
+input {
+  border: none !important;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="email"] {
+  box-shadow: 0 3px 6px rgba($color: #000000, $alpha: 0.16) !important;
+}
+
+input,
+button {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+form {
+  width: 100%;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
