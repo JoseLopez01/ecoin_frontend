@@ -1,8 +1,10 @@
-@mixin font-size($min: 1, $max: 50, $step: 1, $class: 'font-size') {
+@mixin font-size($min: 1, $max: 50, $step: 1, $class: "font-size") {
   @while $min <= $max {
     .#{$class}-#{$min} {
-      font-size: #{$min + 'px'};
+      font-size: #{$min + "px"};
     }
     $min: $min + $step;
   }
 }
+
+@include font-size();
