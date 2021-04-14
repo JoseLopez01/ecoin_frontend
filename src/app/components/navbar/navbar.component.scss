@@ -1,0 +1,27 @@
+.navbar{
+  padding: 5px 30px;
+}
+
+.navbar-user{
+  display: flex;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown-item{
+  color: black;
+  align-items: center;
+  display: flex;
+}
+
+.dropdown-item:active{
+  color: black;
+  background-color: #b0bbcc;
+}
+
+.icon{
+  font-size: 1.5rem;
+  color: black;
+  margin: 0px 5px;
+}
