@@ -37,9 +37,7 @@
             "style": "camelCase"
           }
         ],
-        "@typescript-eslint/explicit-function-return-type": ["error"],
-        "object-curly-spacing": "off",
-        "@typescript-eslint/object-curly-spacing": ["error"]
+        "@typescript-eslint/explicit-function-return-type": ["error"]
       }
     },
     {
