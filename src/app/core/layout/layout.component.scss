@@ -1,0 +1,13 @@
+.layout-container {
+  max-width: 100vw;
+  padding: 0;
+  display: flex;
+
+  .sidebar-container {
+    width: 4%;
+  }
+
+  .main-container {
+    width: 96%;
+  }
+}
