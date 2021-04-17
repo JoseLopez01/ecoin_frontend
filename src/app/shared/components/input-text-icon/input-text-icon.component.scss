@@ -1,0 +1,17 @@
+@import "colors";
+
+.text-input-container {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 5px;
+  
+  input.text-input-icon {
+    box-shadow: none !important;
+  }
+
+  i {
+    color: $darker-gray;
+  }
+}
