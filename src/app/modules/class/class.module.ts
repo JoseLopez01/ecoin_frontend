@@ -10,12 +10,14 @@ import { AgGridModule } from 'ag-grid-angular';
 import { ClassViewComponent } from './components/class-view/class-view.component';
 import { ClassViewHeaderComponent } from './components/class-view-header/class-view-header.component';
 import { ClassViewGridComponent } from './components/class-view-grid/class-view-grid.component';
+import { ClassViewInfoComponent } from './components/class-view-info/class-view-info.component';
 
 @NgModule({
   declarations: [
     ClassViewComponent,
     ClassViewHeaderComponent,
     ClassViewGridComponent,
+    ClassViewInfoComponent,
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardOptions } from '@core/models/card-models/card.model';
 
 @Component({
   selector: 'app-class-view',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassViewComponent implements OnInit {
 
+  cardOptions!: CardOptions;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.createCard();
+  }
+
+  private createCard(): void {
+    this.cardOptions = {
+      showCloseButton: true,
+      height: '95%',
+      width: '100%',
+      title: 'Algorithms'
+    };
   }
 
 }
