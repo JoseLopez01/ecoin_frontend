@@ -8,3 +8,15 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+.header-shadow {
+  text-shadow: 2px 2px 0px $primary;
+  color: $darker-gray;
+}
+
+.view-title-container {
+  h1 {
+    text-shadow: 2px 2px 0 $primary;
+    color: $darker-gray;
+  }
+}

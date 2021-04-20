@@ -21,6 +21,12 @@ const routes: Routes = [
   {
     path: 'home',
     component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: (): any => import('@modules/class/class.module').then(m => m.ClassModule)
+      }
+    ]
   },
 ];
 
