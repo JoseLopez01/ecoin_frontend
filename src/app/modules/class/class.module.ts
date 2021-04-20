@@ -11,6 +11,7 @@ import { ClassViewComponent } from './components/class-view/class-view.component
 import { ClassViewHeaderComponent } from './components/class-view-header/class-view-header.component';
 import { ClassViewGridComponent } from './components/class-view-grid/class-view-grid.component';
 import { ClassViewInfoComponent } from './components/class-view-info/class-view-info.component';
+import { ClassViewScheduleComponent } from './components/class-view-schedule/class-view-schedule.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ClassViewInfoComponent } from './components/class-view-info/class-view-
     ClassViewHeaderComponent,
     ClassViewGridComponent,
     ClassViewInfoComponent,
+    ClassViewScheduleComponent,
   ],
   imports: [
     CommonModule,

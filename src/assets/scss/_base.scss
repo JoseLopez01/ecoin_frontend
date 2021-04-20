@@ -65,3 +65,39 @@ button.icon {
   align-items: center;
   justify-content: center;
 }
+
+.tabs-button {
+  display: inline-flex;
+  width: 100%;
+
+  button {
+    border: none;
+    background: none;
+    flex: 1;
+    transition-duration: .5s;
+    margin: 0 5px;
+    color: $lighter-gray;
+  }
+
+  button:hover {
+    color: $medium-gray;
+    border-bottom: 1px solid $medium-gray;
+    flex-grow: 2;
+  }
+
+  button.inactive {
+    color: $light-gray;
+    flex-shrink: 1;
+  }
+
+  button.active {
+    border-bottom: 1px solid $primary;
+    color: $primary;
+    font-weight: bold;
+    flex: 2;
+  }
+}
+
+.tabs-content {
+  padding-top: 5px;
+}
