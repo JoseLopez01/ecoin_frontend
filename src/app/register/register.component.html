@@ -44,7 +44,7 @@
         <div class="row mb-3">
           <div class="col">
             <input
-              type="text"
+              type="password"
               class="form-control"
               placeholder="Password"
               formControlName="password"
@@ -52,7 +52,7 @@
           </div>
           <div class="col">
             <input
-              type="text"
+              type="password"
               class="form-control"
               placeholder="Confirm Password"
               formControlName="confirmpassword"
@@ -63,11 +63,17 @@
           <div class="col">
             <select class="form-control" formControlName="usertypeid">
               <option [ngValue]="null" disabled>User type</option>
+              <option *ngFor="let userType of userTypes" [ngValue]="userType?.usertypeid">
+                {{ userType?.description }}
+              </option>
             </select>
           </div>
           <div class="col">
             <select class="form-control" formControlName="semesterid">
               <option [ngValue]="null" disabled>Semester</option>
+              <option *ngFor="let semester of semesters" [ngValue]="semester?.semesterid">
+                {{ semester?.description }}
+              </option>
             </select>
           </div>
         </div>
@@ -76,6 +82,8 @@
             <button
               type="button"
               class="btn btn-block back-color-primary text-color-white"
+              [disabled]="form.invalid"
+              (click)="onRegister()"
             >
               Register
             </button>

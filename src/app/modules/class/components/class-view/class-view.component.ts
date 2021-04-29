@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CardOptions } from '@core/models/card-models/card.model';
+import { CardOptions } from '@core/models/card.model';
 
 @Component({
   selector: 'app-class-view',
