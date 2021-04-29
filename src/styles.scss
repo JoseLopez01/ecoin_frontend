@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/scss/colors";
+@import "assets/scss/mixins";
+@import "assets/scss/theme";
+@import "assets/scss/background-colors";
+@import "assets/scss/text-colors";
+@import "assets/scss/base";
+@import "assets/scss/grid";
+@import "assets/scss/card";
+
+@import "./../node_modules/ag-grid-community/dist/styles/ag-theme-material.css";
+@import "./../node_modules/ag-grid-community/dist/styles/ag-grid.css";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body,
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background-color: #ffffff !important;
+}

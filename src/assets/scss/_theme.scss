@@ -1,0 +1,22 @@
+@import "variables";
+@import "colors";
+
+.glass-container {
+  background-color: rgba($color: $light-gray, $alpha: 0.35);
+  box-shadow: 0 3px 6px rgba($color: $black, $alpha: 0.16);
+  border: 1px solid rgba($color: $white, $alpha: 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.header-shadow {
+  text-shadow: 2px 2px 0px $primary;
+  color: $darker-gray;
+}
+
+.view-title-container {
+  h1 {
+    text-shadow: 2px 2px 0 $primary;
+    color: $darker-gray;
+  }
+}

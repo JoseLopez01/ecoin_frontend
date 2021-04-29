@@ -1,0 +1,19 @@
+<div class="tabs-button">
+  <button [ngClass]="selectedTab === tabs.schedule ? 'active' : 'inactive'">
+    Schedule
+  </button>
+  <button [ngClass]="selectedTab === tabs.homeworks ? 'active' : 'inactive'">
+    Homeworks
+  </button>
+  <button [ngClass]="selectedTab === tabs.students ? 'active' : 'inactive'">
+    Students
+  </button>
+  <button [ngClass]="selectedTab === tabs.ecoins ? 'active' : 'inactive'">
+    Ecoins
+  </button>
+</div>
+<div class="tabs-content" [ngSwitch]="selectedTab">
+  <div class="tab-container" *ngSwitchCase="tabs.schedule">
+    <app-class-view-schedule></app-class-view-schedule>
+  </div>
+</div>

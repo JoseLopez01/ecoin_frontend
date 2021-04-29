@@ -1,0 +1,99 @@
+<div class="container h-100 w-100 register">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="register-container glass-container">
+      <form [formGroup]="form">
+        <div class="form-group text-center pt-3">
+          <h1 class="text-gray-darker">Register</h1>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First Name"
+              formControlName="firstname"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Last Name"
+              formControlName="lastname"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-7">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Email"
+              formControlName="email"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Phone Number"
+              formControlName="phonenumber"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              formControlName="password"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Confirm Password"
+              formControlName="confirmpassword"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <select class="form-control" formControlName="usertypeid">
+              <option [ngValue]="null" disabled>User type</option>
+              <option *ngFor="let userType of userTypes" [ngValue]="userType?.usertypeid">
+                {{ userType?.description }}
+              </option>
+            </select>
+          </div>
+          <div class="col">
+            <select class="form-control" formControlName="semesterid">
+              <option [ngValue]="null" disabled>Semester</option>
+              <option *ngFor="let semester of semesters" [ngValue]="semester?.semesterid">
+                {{ semester?.description }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="w-50">
+            <button
+              type="button"
+              class="btn btn-block back-color-primary text-color-white"
+              [disabled]="form.invalid"
+              (click)="onRegister()"
+            >
+              Register
+            </button>
+          </div>
+        </div>
+        <div class="form-group text-center font-size-14">
+          you already have an account?
+          <a routerLink="/login" class="text-color-orange">Login Here</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

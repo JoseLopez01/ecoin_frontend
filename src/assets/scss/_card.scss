@@ -1,0 +1,25 @@
+.smart-card-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  height: 70px;
+
+  .smart-card-title {
+    flex: 1 0 auto;
+    text-align: center;
+
+    h1 {
+      margin: 0;
+      color: $darker-gray;
+    }
+  }
+}
+
+.smart-card-container {
+  border-radius: 5px;
+
+  .smart-card-content {
+    height: calc(100% - 70px);
+    padding: 10px;
+  }
+}

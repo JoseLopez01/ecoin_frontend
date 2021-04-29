@@ -1,0 +1,17 @@
+<div [ngStyle]="styles" class="smart-card-container">
+  <div class="smart-card-header">
+    <div class="smart-card-title">
+      <h1>
+        {{ title }}
+      </h1>
+    </div>
+    <div class="card-header-close-button">
+      <button class="form-control icon">
+        <i class="far fa-times-circle text-color-medium-gray"></i>
+      </button>
+    </div>
+  </div>
+  <div class="smart-card-content">
+    <ng-content></ng-content>
+  </div>
+</div>

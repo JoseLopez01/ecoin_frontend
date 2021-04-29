@@ -1,0 +1,37 @@
+@mixin font-size($min: 1, $max: 50, $step: 1, $class: "font-size") {
+  @while $min <= $max {
+    .#{$class}-#{$min} {
+      font-size: #{$min + "px"};
+    }
+    $min: $min + $step;
+  }
+}
+
+@mixin padding($min: 0, $max: 50, $step: 1, $class: "padding") {
+  @while $min <= $max {
+    .#{$class}-#{$min} {
+      padding: #{$min + "px"} !important;
+    }
+
+    .#{$class}-t-#{$min} {
+      padding-top: #{$min + "px"} !important;
+    }
+
+    .#{$class}-r-#{$min} {
+      padding-right: #{$min + "px"} !important;
+    }
+
+    .#{$class}-b-#{$min} {
+      padding-bottom: #{$min + "px"} !important;
+    }
+
+    .#{$class}-l-#{$min} {
+      padding-left: #{$min + "px"} !important;
+    }
+
+    $min: $min + $step;
+  }
+}
+
+@include font-size();
+@include padding();
