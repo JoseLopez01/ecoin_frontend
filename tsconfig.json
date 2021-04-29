@@ -19,7 +19,8 @@
     "paths": {
       "@core/*": ["app/core/*"],
       "@modules/*": ["app/modules/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@configs/*": ["app/configs/*"]
     },
     "lib": [
       "es2018",

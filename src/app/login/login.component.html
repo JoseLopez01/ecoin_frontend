@@ -25,6 +25,8 @@
           <button
             type="button"
             class="btn btn-block back-color-primary text-color-white"
+            [disabled]="form.invalid"
+            (click)="onLogin()"
           >
             Log In
           </button>
