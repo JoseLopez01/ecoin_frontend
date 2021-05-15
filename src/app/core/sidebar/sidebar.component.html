@@ -1,13 +1,16 @@
 <div class="h-100 back-color-primary d-flex">
   <div class="links-containers align-self-center d-flex flex-column align-items-center justify-content-center w-100">
-    <div class="link-container" routerLink="/home" routerLinkActive="active">
-      <i class="fas fa-book-open text-color-white"></i>
+    <div class="link-container text-color-white tooltip-test" title="Clases" routerLink="/home" 
+          routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <i class="fas fa-book-open active" type="button"></i>
     </div>
-    <div class="link-container" routerLink="/shop" routerLinkActive="active">
-      <i class="fas fa-shopping-cart text-color-white"></i>
+    <div class="link-container text-color-white tooltip-test" title="Tienda" 
+          routerLink="/home/shop" routerLinkActive="active">
+      <i class="fas fa-shopping-cart" type="button"></i>
     </div>
-    <div class="link-container" routerLink="/settings" routerLinkActive="active">
-      <i class="fas fa-cog text-color-white"></i>
+    <div class="link-container text-color-white tooltip-test" title="Configuración" 
+          routerLinkActive="active" routerLink="/home/setting">
+      <i class="fas fa-cog" type="button"></i>
     </div>
   </div>
 </div>

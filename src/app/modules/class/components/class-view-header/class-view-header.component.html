@@ -1,3 +1,4 @@
+<!--
 <div class="row">
   <div class="col">
     <div class="view-title-container">
@@ -5,19 +6,25 @@
     </div>
   </div>
 </div>
+-->
+
 <div class="row ">
   <div class="col-7 padding-r-5">
     <app-input-text-icon [icon]="'fas fa-search'" [placeholder]="'Search'">
     </app-input-text-icon>
   </div>
   <div class="col-3 padding-r-5 padding-l-5">
-    <button class="form-control back-color-primary">
+    <button class="form-control back-color-primary text-color-white" data-toggle="modal" data-target="#create-class">
       Create Class
     </button>
   </div>
   <div class="col-2 padding-r-5 padding-l-5">
-    <button class="form-control back-color-red icon">
+    <button class="form-control back-color-red text-color-white" data-toggle="modal" data-target="#delete">
       <i class="fas fa-trash"></i>
     </button>
   </div>
 </div>
+
+<app-modal-create-class></app-modal-create-class>
+<app-modal-create-activity></app-modal-create-activity>
+<app-modal-delete></app-modal-delete>
