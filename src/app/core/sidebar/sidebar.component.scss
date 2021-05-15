@@ -1,7 +1,11 @@
 .link-container {
-  margin: 20px 0;
+  margin: 25px 0;
 
-  a i {
-    font-size: 1.2em;
+  a,i {
+    font-size: 1.3em;
+  }
+
+  i:hover{
+    color: #b0bbcc;
   }
 }

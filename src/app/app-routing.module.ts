@@ -25,6 +25,18 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: (): any => import('@modules/class/class.module').then(m => m.ClassModule)
+      },
+      {
+        path: 'shop',
+        loadChildren: (): any => import('@modules/shop/shop.module').then(m => m.ShopModule)
+      },
+      {
+        path: 'setting',
+        loadChildren: (): any => import('@modules/setting/setting.module').then(m => m.SettingModule)
+      },
+      {
+        path: 'notifications',
+        loadChildren: (): any => import('@modules/notifications/notifications.module').then(m => m.NotificationsModule)
       }
     ]
   },

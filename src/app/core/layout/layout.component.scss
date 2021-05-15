@@ -8,8 +8,16 @@
     box-shadow: 4px 0 6px rgba($color: #000000, $alpha: 0.25);
   }
 
-  .main-container {
+  .all-container{
     width: 96%;
     background-color: #e2e2e2;
+
+    .navbar-container {
+      height: 7%;
+    }
+
+    .main-container {
+      height: 93%;
+    }
   }
 }
