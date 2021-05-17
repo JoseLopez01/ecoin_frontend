@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ShopViewComponent } from './shop-view.component';
+import { ShopViewHeaderComponent } from './shop-view-header.component';
 
-describe('ShopViewComponent', () => {
-  let component: ShopViewComponent;
-  let fixture: ComponentFixture<ShopViewComponent>;
+describe('ShopViewHeaderComponent', () => {
+  let component: ShopViewHeaderComponent;
+  let fixture: ComponentFixture<ShopViewHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShopViewComponent ]
+      declarations: [ ShopViewHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShopViewComponent);
+    fixture = TestBed.createComponent(ShopViewHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
