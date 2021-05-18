@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AwardsService } from '@core/services/awards/awards.service';
 import { Awards } from 'app/shared/helpers/awards.model';
 
 @Component({
@@ -7,14 +8,19 @@ import { Awards } from 'app/shared/helpers/awards.model';
   styleUrls: ['./modal-add-awards.component.scss']
 })
 export class ModalAddAwardsComponent implements OnInit {
+  title: string = "";
+  ecoins: number = 0;
+  description: string = "";
 
+  constructor(private awardsService: AwardsService) {}
 
-  constructor() {
+  ngOnInit() {}
 
+  onAwards() {
+  this.awardsService.awards.push(new Awards (this.title, this.ecoins, this.description));
   }
 
-  ngOnInit() {
-  }
 
 
 }
+

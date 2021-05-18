@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { AwardsService } from '@core/services/awards/awards.service';
 import { Awards } from 'app/shared/helpers/awards.model';
 
 @Component({
@@ -7,13 +8,19 @@ import { Awards } from 'app/shared/helpers/awards.model';
   styleUrls: ['./shop-view-card.component.scss']
 })
 export class ShopViewCardComponent implements OnInit {
-  
- 
-  constructor() { 
-    
+  @Input() a!: Awards;
+
+  card: Awards[] = [];
+
+  constructor(private awardsService: AwardsService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.card = this.awardsService.awards
+  }
+
+  awardsDelete(card: Awards) {
+    this.awardsService.delete(card);
   }
 
 }

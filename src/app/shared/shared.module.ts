@@ -19,7 +19,8 @@ import { ModalAddAwardsComponent } from './components/modal/modal-add-awards/mod
     ModalDeleteComponent, 
     ModalLogoutComponent, 
     ModalCreateActivityComponent,
-    ModalAddAwardsComponent
+    ModalAddAwardsComponent,
+  
   ],
   imports: [CommonModule, FormsModule],
   exports: [InputTextIconComponent, 
@@ -29,6 +30,7 @@ import { ModalAddAwardsComponent } from './components/modal/modal-add-awards/mod
     ModalLogoutComponent, 
     ModalCreateActivityComponent,
     ModalAddAwardsComponent,
+    
    
   ],
 })

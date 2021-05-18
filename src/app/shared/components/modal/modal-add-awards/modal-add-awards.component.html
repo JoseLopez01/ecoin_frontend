@@ -1,5 +1,5 @@
-<div class="modal fade" id="modalShop" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade" id="modalShop" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="modalTitle">Nuevo premio</h5>
@@ -13,36 +13,38 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="#">
+        <form (ngSubmit)="f.form.valid && onAwards()" #f="ngForm">
           <div class="row mb-3">
             <div class="col">
-              <label>Título</label>
+              <label for="inputTitle">Título</label>
               <input
                 type="text"
                 class="form-control"
                 placeholder="Título"
-                id="title"
-                #title
+                name="title"
+                [(ngModel)]="title"
                 required
               />
             </div>
             <div class="col">
-              <label>Ecoins</label>
+              <label for="inputEcoins">Ecoins</label>
               <input
-                type="text"
+                type="number"
                 class="form-control"
                 placeholder="Ecoins"
-                #ecoins
+                name="ecoins"
+                [(ngModel)]="ecoins"
                 required
               />
             </div>
           </div>
           <div class="form-group">
-            <label for="description">Descripción</label>
+            <label for="inputDescription">Descripción</label>
             <textarea
               class="form-control"
               placeholder="Descripción"
-              #description
+              name="description"
+              [(ngModel)]="description"
               required
             ></textarea>
           </div>
@@ -50,14 +52,17 @@
             <div class="col">
               <button
                 type="button"
-                class="btn form-control back-color-red"
+                class="btn form-control back-color-red text-color-white"
                 data-dismiss="modal"
               >
                 Cancelar
               </button>
             </div>
             <div class="col">
-              <button type="button" class="btn form-control back-color-primary">
+              <button
+                type="submit"
+                class="btn form-control back-color-primary text-color-white"
+              >
                 Guardar
               </button>
             </div>
@@ -67,5 +72,3 @@
     </div>
   </div>
 </div>
-
-

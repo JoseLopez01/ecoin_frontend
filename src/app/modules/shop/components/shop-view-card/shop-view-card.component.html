@@ -1,15 +1,26 @@
-<div class="card text-center bg-light">
-  <div class="card-body">
-    <h5 class="card-title">Titulo del premio</h5>
-    <p class="card-text">Descripcion del premio</p>
-    <div class="row justify-content-center">
-      <div class="col-6">
-        <h4 class="mb-1">$20000</h4>
-      </div>
-      <div class="col-6">
-        <button type="submit" class="btn back-color-primary text-color-white">
-          Comprar
-        </button>
+<div class="row row-flex">
+  <div *ngFor="let c of card" class="col-sm-3">
+    <div class="smart-card-container mb-4 back-color-white">
+      <div class="smart-card-content">
+        <div class="smart-card-header">
+          <h5 class="smart-card-title">{{c.title }}</h5>
+        </div>
+        <div class="text-center">
+          <p class="card-text">{{c.description }}</p>
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <h4 class="mb-1">${{c.ecoins }}</h4>
+            </div>
+            <div class="col-6">
+              <button
+                type="submit"
+                class="btn back-color-primary text-color-white"
+              >
+                Comprar
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
