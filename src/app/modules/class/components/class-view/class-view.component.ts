@@ -9,11 +9,16 @@ import { CardOptions } from '@core/models/card.model';
 export class ClassViewComponent implements OnInit {
 
   cardOptions!: CardOptions;
+  selectedClassId!: number;
 
   constructor() { }
 
   ngOnInit(): void {
     this.createCard();
+  }
+
+  onClassSelected(courseId: number): void {
+    this.selectedClassId = courseId;
   }
 
   private createCard(): void {

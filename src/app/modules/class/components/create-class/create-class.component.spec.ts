@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalCreateClassComponent } from './modal-create-class.component';
+import { CreateClassComponent } from './create-class.component';
 
-describe('ModalCreateClassComponent', () => {
-  let component: ModalCreateClassComponent;
-  let fixture: ComponentFixture<ModalCreateClassComponent>;
+describe('CreateClassComponent', () => {
+  let component: CreateClassComponent;
+  let fixture: ComponentFixture<CreateClassComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalCreateClassComponent ]
+      declarations: [ CreateClassComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalCreateClassComponent);
+    fixture = TestBed.createComponent(CreateClassComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

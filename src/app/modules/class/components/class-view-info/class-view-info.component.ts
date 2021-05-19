@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Course } from '@core/models/class.model';
+import { ClassService } from '@core/services/class/class.service';
 
 enum TABS {
   homeworks = 'homeworks',
@@ -14,12 +16,27 @@ enum TABS {
 })
 export class ClassViewInfoComponent implements OnInit {
 
+  @Input() courseId = 0;
+
   selectedTab = TABS.schedule;
   tabs = TABS;
 
-  constructor() { }
+  selectedClass!: Course;
+
+  constructor(private classService: ClassService) { }
 
   ngOnInit(): void {
+    this.getSelectedClass();
+  }
+
+  private getSelectedClass(): void {
+    if (this.courseId) {
+      this.classService.getClass(this.courseId).subscribe({
+        next: response => {
+          this.selectedClass = response.data[0];
+        }
+      });
+    }
   }
 
 }

@@ -4,3 +4,14 @@ export interface Response {
   error: boolean;
   data: any[];
 };
+
+export interface AuthResponse {
+  data: {
+    accesstoken: string;
+    expiresat: string;
+    tokentype: string;
+  };
+  error: boolean;
+  message: string;
+  status: number;
+}
