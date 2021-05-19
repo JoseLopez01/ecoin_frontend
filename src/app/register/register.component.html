@@ -63,7 +63,7 @@
           <div class="col">
             <select class="form-control" formControlName="usertypeid">
               <option [ngValue]="null" disabled>User type</option>
-              <option *ngFor="let userType of userTypes" [ngValue]="userType?.usertypeid">
+              <option *ngFor="let userType of userTypes$ | async" [ngValue]="userType?.usertypeid">
                 {{ userType?.description }}
               </option>
             </select>
@@ -71,7 +71,7 @@
           <div class="col">
             <select class="form-control" formControlName="semesterid">
               <option [ngValue]="null" disabled>Semester</option>
-              <option *ngFor="let semester of semesters" [ngValue]="semester?.semesterid">
+              <option *ngFor="let semester of semesters$ | async" [ngValue]="semester?.semesterid">
                 {{ semester?.description }}
               </option>
             </select>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClassService } from '@core/services/class/class.service';
+import { CreateCourse } from '@core/store/course/course.actions';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-create-class',
@@ -13,7 +14,7 @@ export class CreateClassComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private classService: ClassService
+    private store: Store
   ) {
     this.createForm();
   }
@@ -22,11 +23,7 @@ export class CreateClassComponent implements OnInit {
   }
 
   onSave(): void {
-    this.classService.createClass(this.form.value).subscribe({
-      next: response => {
-        console.log(response);
-      }
-    });
+    this.store.dispatch(new CreateCourse(this.form.value));
   }
 
   private createForm(): void {

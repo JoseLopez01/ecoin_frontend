@@ -1,7 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Course } from '@core/models/class.model';
 import { WeekDay } from '@core/models/weekday.model';
-import { ClassService } from '@core/services/class/class.service';
+import { CreateCourseSchedule, GetWeekDays } from '@core/store/course/course.actions';
+import { CourseState } from '@core/store/course/course.state';
+import { Select, Store } from '@ngxs/store';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-class-view-schedule',
@@ -10,23 +14,23 @@ import { ClassService } from '@core/services/class/class.service';
 })
 export class ClassViewScheduleComponent implements OnInit {
 
-  @Input() courseId = 0;
+  @Select(CourseState.selectedCourse) selectedCourse$!: Observable<Course>;
 
-  classSchedules: any[] = [];
-
-  weekDays: WeekDay[] = [];
+  currentDate: Date = new Date();
   form!: FormGroup;
   adding = false;
 
+  private subscription: Subscription[] = [];
+
   constructor(
     private formBuilder: FormBuilder,
-    private classService: ClassService
-  ) {
-  }
+    private store: Store
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
     this.getWeekDays();
+    this.getSelectedCourse();
   }
 
   onAdd(): void {
@@ -34,24 +38,34 @@ export class ClassViewScheduleComponent implements OnInit {
   }
 
   onSave(): void {
-    this.classService.createClassSchedule(this.form.value).subscribe();
+    this.store.dispatch(new CreateCourseSchedule(this.form.value));
+    this.form.reset();
+    this.adding = false;
   }
 
   private createForm(): void {
     this.form = this.formBuilder.group(
       {
-        courseid: [this.courseId, Validators.required],
+        courseid: [null, Validators.required],
         weekdayid: [null, Validators.required],
       }
     );
   }
 
   private getWeekDays(): void {
-    this.classService.getWeekdays().subscribe({
-      next: (response) => {
-        this.weekDays = response.data;
-      }
-    });
+    this.store.dispatch(new GetWeekDays());
+  }
+
+  private getSelectedCourse(): void {
+    this.subscription.push(
+      this.selectedCourse$.subscribe({
+        next: course => {
+          if (course) {
+            this.form.get('courseid')?.setValue(course.courseid);
+          }
+        }
+      })
+    );
   }
 
 }

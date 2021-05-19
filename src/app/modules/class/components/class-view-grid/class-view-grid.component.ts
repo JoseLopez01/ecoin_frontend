@@ -1,7 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Course } from '@core/models/class.model';
-import { ClassService } from '@core/services/class/class.service';
+import { GetCourseById, GetCourses } from '@core/store/course/course.actions';
+import { CourseState } from '@core/store/course/course.state';
+import { Select, Store } from '@ngxs/store';
 import { GridOptions } from 'ag-grid-community';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-class-view-grid',
@@ -10,12 +13,11 @@ import { GridOptions } from 'ag-grid-community';
 })
 export class ClassViewGridComponent implements OnInit {
 
-  @Output() selectedClassId: EventEmitter<number> = new EventEmitter<number>();
+  @Select(CourseState.courses) courses$!: Observable<Course[]>;
 
   gridOptions!: GridOptions;
-  classes: Course[] = [];
 
-  constructor(private classService: ClassService) { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.createGrid();
@@ -45,19 +47,15 @@ export class ClassViewGridComponent implements OnInit {
         params.api.sizeColumnsToFit();
       },
       onRowDoubleClicked: (params): void => {
-        console.log(params.data);
-        this.selectedClassId.emit(params.data.courseid);
+        const { courseid } = params.data;
+        this.store.dispatch(new GetCourseById(courseid));
       },
       rowData: []
     };
   }
 
   private getClasses(): void {
-    this.classService.getTeacherClasses().subscribe({
-      next: response => {
-        this.classes = response.data;
-      }
-    });
+    this.store.dispatch(new GetCourses());
   }
 
 }

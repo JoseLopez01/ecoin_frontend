@@ -1,1 +1,6 @@
-<ag-grid-angular class="ag-theme-material" [gridOptions]="gridOptions" [rowData]="classes"></ag-grid-angular>
+<ag-grid-angular
+  class="ag-theme-material"
+  [gridOptions]="gridOptions"
+  [rowData]="courses$ | async"
+>
+</ag-grid-angular>

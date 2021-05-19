@@ -16,8 +16,8 @@ export class AuthService {
     return this.httpClient.post<AuthResponse>(CONSTANTS.auth.login, loginInfo);
   }
 
-  register(registerInfo: User): Observable<any> {
-    return this.httpClient.post<Response>(CONSTANTS.auth.register, registerInfo);
+  register(registerInfo: User): Observable<Response<any>> {
+    return this.httpClient.post<Response<any>>(CONSTANTS.auth.register, registerInfo);
   }
 
   isAuthenticated(): boolean {

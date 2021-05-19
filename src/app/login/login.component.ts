@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from '@core/services/auth/auth.service';
+import { Login } from '@core/store/auth/auth.actions';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private router: Router
+    private store: Store,
   ) {
     this.createForm();
   }
@@ -22,13 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onLogin(): void {
-    this.authService.login(this.form.value).subscribe({
-      next: (value) => {
-        localStorage.setItem('token', value.data.accesstoken);
-        this.router.navigate(['/home']);
-      },
-      error: (err) => console.log(err),
-    });
+    this.store.dispatch(new Login(this.form.value));
   }
 
   private createForm(): void {

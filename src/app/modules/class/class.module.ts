@@ -13,6 +13,9 @@ import { ClassViewGridComponent } from './components/class-view-grid/class-view-
 import { ClassViewInfoComponent } from './components/class-view-info/class-view-info.component';
 import { ClassViewScheduleComponent } from './components/class-view-schedule/class-view-schedule.component';
 import { CreateClassComponent } from './components/create-class/create-class.component';
+import { NgxsModule } from '@ngxs/store';
+import { CourseState } from '@core/store/course/course.state';
+import { ClassViewCreateScheduleComponent } from './components/class-view-create-schedule/class-view-create-schedule.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { CreateClassComponent } from './components/create-class/create-class.com
     ClassViewInfoComponent,
     ClassViewScheduleComponent,
     CreateClassComponent,
+    ClassViewCreateScheduleComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +33,9 @@ import { CreateClassComponent } from './components/create-class/create-class.com
     ReactiveFormsModule,
     SharedModule,
     AgGridModule.withComponents([]),
+    NgxsModule.forFeature([
+      CourseState
+    ])
   ],
 })
 export class ClassModule {}

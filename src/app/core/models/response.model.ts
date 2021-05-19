@@ -1,8 +1,8 @@
-export interface Response {
+export interface Response<T> {
   message: string;
   status: number;
   error: boolean;
-  data: any[];
+  data: T[];
 };
 
 export interface AuthResponse {

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CardOptions } from '@core/models/card.model';
+import { Course } from '@core/models/class.model';
+import { CourseState } from '@core/store/course/course.state';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-class-view',
@@ -8,17 +12,15 @@ import { CardOptions } from '@core/models/card.model';
 })
 export class ClassViewComponent implements OnInit {
 
+  @Select(CourseState.selectedCourse) selectedCourse$!: Observable<Course>;
+  @Select(CourseState.showInfo) showInfo$!: Observable<boolean>;
+
   cardOptions!: CardOptions;
-  selectedClassId!: number;
 
   constructor() { }
 
   ngOnInit(): void {
     this.createCard();
-  }
-
-  onClassSelected(courseId: number): void {
-    this.selectedClassId = courseId;
   }
 
   private createCard(): void {

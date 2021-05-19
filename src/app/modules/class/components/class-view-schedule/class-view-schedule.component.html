@@ -1,50 +1,36 @@
-<form [formGroup]="form">
-  <div class="form-container">
-    <div class="title-container pt-3">Schedule</div>
-    <div class="row mt-3" *ngIf="adding">
-      <div class="col">
-        <div class="input-group">
-          <select formControlName="weekdayid" class="form-control">
-            <option [ngValue]="null">
-              Week Day
-            </option>
-            <option *ngFor="let weekDay of weekDays" [ngValue]="weekDay.weekdayid">
-              {{ weekDay.description }}
-            </option>
-          </select>
-        </div>
-      </div>
-      <div class="col">
-        <div class="input-group">
-          <input type="date" class="form-control" placeholder="Start">
-        </div>
-      </div>
-      <div class="col">
-        <div class="input-group">
-          <input type="date" class="form-control" placeholder="End">
-        </div>
-      </div>
+<div class="form-container" *ngIf="(selectedCourse$ | async) as course">
+  <div class="title-container pt-3">Schedule</div>
+  <div class="row mt-3" *ngFor="let weekDay of course?.weekdays">
+    <div class="col text-center">
+      {{ weekDay?.description }}
     </div>
-    <div class="row mt-3 d-flex justify-content-end pr-3" *ngIf="adding; else addBtn">
-      <div class="w-20">
-        <button type="button" class="form-control back-color-green" (click)="onSave()">
-          <i class="far fa-save"></i>
-        </button>
-      </div>
-      <div class="w-20 ml-1">
-        <button class="form-control back-color-red">
-          <i class="fas fa-trash"></i>
-        </button>
-      </div>
+    <div class="col text-center">
+      {{ currentDate | date: 'shortDate' }}
     </div>
-    <ng-template #addBtn>
-      <div class="row mt-3">
-        <div class="col text-center">
-          <button class="icon-only text-color-medium-gray" (click)="onAdd()">
-            <i class="fas fa-plus-circle"></i>
-          </button>
-        </div>
-      </div>
-    </ng-template>
+    <div class="col text-center">
+      {{ currentDate | date: 'shortDate' }}
+    </div>
   </div>
-</form>
+  <app-class-view-create-schedule *ngIf="adding" [form]="form"></app-class-view-create-schedule>
+  <div class="row mt-3 d-flex justify-content-end pr-3" *ngIf="adding; else addBtn">
+    <div class="w-20">
+      <button type="button" class="form-control back-color-green" (click)="onSave()">
+        <i class="far fa-save"></i>
+      </button>
+    </div>
+    <div class="w-20 ml-1">
+      <button class="form-control back-color-red">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+  </div>
+  <ng-template #addBtn>
+    <div class="row mt-3">
+      <div class="col text-center">
+        <button class="icon-only text-color-medium-gray" (click)="onAdd()">
+          <i class="fas fa-plus-circle"></i>
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>

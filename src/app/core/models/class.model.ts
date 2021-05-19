@@ -1,8 +1,10 @@
+import { WeekDay } from './weekday.model';
+
 export interface Course {
   courseid: number;
   name: string;
   isactive?: boolean;
-  schedules: Schedule[];
+  weekdays: WeekDay[];
 }
 
 export interface Schedule {
