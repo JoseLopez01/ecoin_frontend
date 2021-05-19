@@ -1,0 +1,26 @@
+<div class="rounded mx-5 pr">
+
+  <div *ngIf="notification?.length; else empty">
+    <div class="px-3 my-2 rounded back-color-white shadow-sm" *ngFor="let i of notification.reverse()" >
+      <div class="d-flex text-muted pt-3">
+        <img src="http://cemokalab.com/wp-content/uploads/2015/07/avatar-369-456321.png" alt="Photo" 
+        width="35" height="35" class="rounded me-2"> 
+        <p class="ml-3 pb-3 mb-0 small">
+          <strong class="d-block text-gray-dark pb-1">@{{i.user}}</strong>
+            Estudiante {{i.user}} ha redimido {{i.ecoins}} $Ecoins con el premio {{i.award}}
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #empty>
+    <div class="px-3 my-2 rounded back-color-white shadow-sm">
+      <div class="d-flex text-muted pt-3">
+        <p class="ml-3 pb-3 mb-0 small">
+          <strong class="d-block text-gray-dark pb-1">No hay notificaciones recientes</strong>
+        </p>
+      </div>
+    </div>
+  </ng-template>
+
+</div>

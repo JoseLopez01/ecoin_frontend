@@ -1,0 +1,74 @@
+<div class="modal fade" id="modalShop" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Nuevo premio</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="f.form.valid && onAwards()" #f="ngForm">
+          <div class="row mb-3">
+            <div class="col">
+              <label for="inputTitle">Título</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Título"
+                name="title"
+                [(ngModel)]="title"
+                required
+              />
+            </div>
+            <div class="col">
+              <label for="inputEcoins">Ecoins</label>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Ecoins"
+                name="ecoins"
+                [(ngModel)]="ecoins"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputDescription">Descripción</label>
+            <textarea
+              class="form-control"
+              placeholder="Descripción"
+              name="description"
+              [(ngModel)]="description"
+              required
+            ></textarea>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button
+                type="button"
+                class="btn form-control back-color-red text-color-white"
+                data-dismiss="modal"
+              >
+                Cancelar
+              </button>
+            </div>
+            <div class="col">
+              <button
+                type="submit"
+                class="btn form-control back-color-primary text-color-white"
+              >
+                Guardar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
