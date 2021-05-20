@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-7 padding-r-5">
+    <app-input-text-icon [icon]="'fas fa-search'" [placeholder]="'Buscar'">
+    </app-input-text-icon>
+  </div>
+  <div class="col-3 padding-r-5 padding-l-5">
+    <button
+      class="form-control back-color-primary text-color-white"
+      data-toggle="modal"
+      data-target="#modalShop"
+    >
+      Añadir
+    </button>
+  </div>
+  <div class="col-2 padding-r-5 padding-l-5">
+    <button
+      class="form-control back-color-red text-color-white icon"
+      data-toggle="modal"
+      data-target="#delete"
+    >
+      <i class="fas fa-trash"></i>
+    </button>
+  </div>
+</div>
+<app-modal-add-awards></app-modal-add-awards>
+<app-modal-delete></app-modal-delete>

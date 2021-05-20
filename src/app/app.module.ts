@@ -1,6 +1,6 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RequestInterceptor } from '@core/services/interceptor/request.interceptor';
 import { AuthState } from '@core/store/auth/auth.state';
@@ -23,6 +23,9 @@ import { RegisterComponent } from './register/register.component';
     AppRoutingModule,
     ReactiveFormsModule,
     CoreModule,
+<<<<<<< HEAD
+    FormsModule
+=======
     NgxsModule.forRoot([
       AuthState
     ])
@@ -33,6 +36,7 @@ import { RegisterComponent } from './register/register.component';
       useClass: RequestInterceptor,
       multi: true
     }
+>>>>>>> d26bbea55bd1eee25d86d6d414930206ae0a6d5d
   ],
   bootstrap: [AppComponent]
 })
