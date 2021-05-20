@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalCreateClassComponent } from './modal-create-class.component';
+import { HomeworkViewComponent } from './homework-view.component';
 
-describe('ModalCreateClassComponent', () => {
-  let component: ModalCreateClassComponent;
-  let fixture: ComponentFixture<ModalCreateClassComponent>;
+describe('HomeworkViewComponent', () => {
+  let component: HomeworkViewComponent;
+  let fixture: ComponentFixture<HomeworkViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalCreateClassComponent ]
+      declarations: [ HomeworkViewComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalCreateClassComponent);
+    fixture = TestBed.createComponent(HomeworkViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -11,4 +11,18 @@ export const CONSTANTS = {
     userTypes: `${environment.apiUrl}/user-types`,
     semesters: `${environment.apiUrl}/semesters`,
   },
+  weekdays: {
+    all: `${environment.apiUrl}/week-days`
+  },
+  class: {
+    create: `${environment.apiUrl}/courses`,
+    base: `${environment.apiUrl}/courses`,
+    schedule: `${environment.apiUrl}/courses/schedule`
+  },
+  schedule: {
+    base: `${environment.apiUrl}/schedules`
+  },
+  activity: {
+    base: `${environment.apiUrl}/activities`
+  }
 };

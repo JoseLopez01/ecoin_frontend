@@ -8,10 +8,10 @@ import { CardOptions } from '@core/models/card.model';
 })
 export class CardComponent implements OnInit {
   @Input() options!: CardOptions;
+  @Input() title = 'Card';
 
   showCloseButton = true;
   styles: any;
-  title = '';
 
   constructor() {}
 
@@ -35,7 +35,6 @@ export class CardComponent implements OnInit {
 
   private getOptions(): void {
     const { showCloseButton, title } = this.options;
-    this.title = title || '';
     this.showCloseButton = showCloseButton || false;
   }
 }

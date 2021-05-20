@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Course } from '@core/models/class.model';
 
 enum TABS {
   homeworks = 'homeworks',
@@ -20,6 +21,10 @@ export class ClassViewInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onTabChanged(tab: TABS): void {
+    this.selectedTab = tab;
   }
 
 }

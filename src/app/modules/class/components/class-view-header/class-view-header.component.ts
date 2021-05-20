@@ -11,18 +11,8 @@ export class ClassViewHeaderComponent implements OnInit {
   form!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-    this.createForm();
   }
 
   ngOnInit(): void {
   }
-
-  private createForm(): void {
-    this.form = this.formBuilder.group(
-      {
-        classname: null
-      }
-    );
-  }
-
 }
