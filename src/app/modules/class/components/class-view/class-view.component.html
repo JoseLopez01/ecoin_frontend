@@ -1,7 +1,7 @@
 <div class="w-100 h-100 p-3">
   <div class="row h-100">
     <div class="col flex-column">
-      <app-class-view-header></app-class-view-header>
+      <app-class-view-header *ngIf="showHeader"></app-class-view-header>
       <div class="row flex-grow-1 grid-container">
         <div class="col padding-r-5">
           <app-class-view-grid></app-class-view-grid>
@@ -9,9 +9,9 @@
       </div>
     </div>
     <div class="col">
-      <div class="row h-100">
+      <div class="row h-100" *ngIf="showInfo$ | async">
         <div class="col">
-          <app-card [options]="cardOptions">
+          <app-card [options]="cardOptions" [title]="(selectedCourse$ | async)?.name || ''">
             <app-class-view-info></app-class-view-info>
           </app-card>
         </div>
@@ -19,3 +19,5 @@
     </div>
   </div>
 </div>
+
+<app-create-class></app-create-class>

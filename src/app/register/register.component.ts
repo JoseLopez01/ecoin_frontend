@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Semester, UserType } from '@core/models/user.model';
-import { Response } from '@core/models/response.model';
-import { AuthService } from '@core/services/auth/auth.service';
-import { UserService } from '@core/services/user/user.service';
-import { NextObserver } from 'rxjs';
+import { Observable } from 'rxjs';
 import { confirmPassword } from 'app/shared/helpers/custom-validators';
+import { Select, Store } from '@ngxs/store';
+import { GetSemester, GetUserTypes, Register } from '@core/store/auth/auth.actions';
+import { AuthState } from '@core/store/auth/auth.state';
 
 @Component({
   selector: 'app-register',
@@ -13,14 +13,15 @@ import { confirmPassword } from 'app/shared/helpers/custom-validators';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  userTypes: UserType[] = [];
-  semesters: Semester[] = [];
+
+  @Select(AuthState.semesters) semesters$!: Observable<Semester[]>;
+  @Select(AuthState.userTypes) userTypes$!: Observable<UserType[]>;
+
   form!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private userService: UserService
+    private store: Store,
   ) {
     this.createForm();
   }
@@ -31,10 +32,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister(): void {
-    this.authService.register(this.form.value).subscribe({
-      next: (value) => console.log(value),
-      error: (err) => console.log(err),
-    });
+    this.store.dispatch(new Register(this.form.value));
   }
 
   private createForm(): void {
@@ -59,20 +57,10 @@ export class RegisterComponent implements OnInit {
   }
 
   private getSemesters(): void {
-    const observer: NextObserver<Response> = {
-      next: (value) => {
-        this.semesters = value.data;
-      },
-    };
-    this.userService.getSemesters().subscribe(observer);
+    this.store.dispatch(new GetSemester());
   }
 
   private getUserTypes(): void {
-    const observer: NextObserver<Response> = {
-      next: (value) => {
-        this.userTypes = value.data;
-      },
-    };
-    this.userService.getUserTypes().subscribe(observer);
+    this.store.dispatch(new GetUserTypes());
   }
 }

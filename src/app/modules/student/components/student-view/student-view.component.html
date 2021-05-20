@@ -1,0 +1,15 @@
+<div class="container h-100 mt-2">
+  <div class="row w-25">
+    <div class="col">
+      <button class="form-control back-color-primary text-color-white" data-toggle="modal" data-target="#add-student" (click)="searching = true">
+        Add Student
+      </button>
+    </div>
+  </div>
+  <div class="row h-100 mt-1">
+    <div class="col">
+      <app-student-view-grid></app-student-view-grid>
+    </div>
+  </div>
+</div>
+<app-add-student></app-add-student>

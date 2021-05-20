@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalCreateClassComponent } from './modal-create-class.component';
+import { StudentViewGridComponent } from './student-view-grid.component';
 
-describe('ModalCreateClassComponent', () => {
-  let component: ModalCreateClassComponent;
-  let fixture: ComponentFixture<ModalCreateClassComponent>;
+describe('StudentViewGridComponent', () => {
+  let component: StudentViewGridComponent;
+  let fixture: ComponentFixture<StudentViewGridComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalCreateClassComponent ]
+      declarations: [ StudentViewGridComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalCreateClassComponent);
+    fixture = TestBed.createComponent(StudentViewGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

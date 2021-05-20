@@ -1,19 +1,37 @@
 <div class="tabs-button">
-  <button [ngClass]="selectedTab === tabs.schedule ? 'active' : 'inactive'">
+  <button
+    [ngClass]="selectedTab === tabs.schedule ? 'active' : 'inactive'"
+    (click)="onTabChanged(tabs.schedule)"
+  >
     Schedule
   </button>
-  <button [ngClass]="selectedTab === tabs.homeworks ? 'active' : 'inactive'">
+  <button
+    [ngClass]="selectedTab === tabs.homeworks ? 'active' : 'inactive'"
+    (click)="onTabChanged(tabs.homeworks)"
+  >
     Homeworks
   </button>
-  <button [ngClass]="selectedTab === tabs.students ? 'active' : 'inactive'">
+  <button
+    [ngClass]="selectedTab === tabs.students ? 'active' : 'inactive'"
+    (click)="onTabChanged(tabs.students)"
+  >
     Students
   </button>
-  <button [ngClass]="selectedTab === tabs.ecoins ? 'active' : 'inactive'">
+  <button
+    [ngClass]="selectedTab === tabs.ecoins ? 'active' : 'inactive'"
+    (click)="onTabChanged(tabs.ecoins)"
+  >
     Ecoins
   </button>
 </div>
-<div class="tabs-content" [ngSwitch]="selectedTab">
+<div class="tabs-content h-100" [ngSwitch]="selectedTab">
   <div class="tab-container" *ngSwitchCase="tabs.schedule">
     <app-class-view-schedule></app-class-view-schedule>
+  </div>
+  <div class="tab-container h-75" *ngSwitchCase="tabs.homeworks">
+    <app-homework-view></app-homework-view>
+  </div>
+  <div class="tab-container h-75" *ngSwitchCase="tabs.students">
+    <app-student-view></app-student-view>
   </div>
 </div>

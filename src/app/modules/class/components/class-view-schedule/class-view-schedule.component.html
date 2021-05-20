@@ -1,1 +1,36 @@
-<p>class-view-schedule works!</p>
+<div class="form-container" *ngIf="(selectedCourse$ | async) as course">
+  <div class="title-container pt-3">Schedule</div>
+  <div class="row mt-3" *ngFor="let weekDay of course?.weekdays">
+    <div class="col text-center">
+      {{ weekDay?.description }}
+    </div>
+    <div class="col text-center">
+      {{ currentDate | date: 'shortDate' }}
+    </div>
+    <div class="col text-center">
+      {{ currentDate | date: 'shortDate' }}
+    </div>
+  </div>
+  <app-class-view-create-schedule *ngIf="adding" [form]="form"></app-class-view-create-schedule>
+  <div class="row mt-3 d-flex justify-content-end pr-3" *ngIf="adding; else addBtn">
+    <div class="w-20">
+      <button type="button" class="form-control back-color-green" (click)="onSave()">
+        <i class="far fa-save"></i>
+      </button>
+    </div>
+    <div class="w-20 ml-1">
+      <button class="form-control back-color-red">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+  </div>
+  <ng-template #addBtn>
+    <div class="row mt-3">
+      <div class="col text-center">
+        <button class="icon-only text-color-medium-gray" (click)="onAdd()">
+          <i class="fas fa-plus-circle"></i>
+        </button>
+      </div>
+    </div>
+  </ng-template>
+</div>
