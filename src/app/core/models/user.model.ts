@@ -6,6 +6,7 @@ export interface User {
   usertypeid: number;
   semesterid: number;
   password: string;
+  semester?: Semester;
 };
 
 export interface UserType {

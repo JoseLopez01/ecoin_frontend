@@ -20,3 +20,8 @@ export class GetUserTypes {
   static readonly type = '[Auth] Get User Types';
   constructor() {}
 }
+
+export class GetLoggedUser {
+  static readonly type = '[Auth] Get Logged User';
+  constructor() {}
+}

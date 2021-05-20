@@ -24,3 +24,8 @@ export class CreateCourseSchedule {
   static readonly type = '[Course] Create Schedule';
   constructor(public schedule: Schedule) {}
 }
+
+export class GetStudentCourses {
+  static readonly type = '[Course] Get Student Courses';
+  constructor() {}
+}
