@@ -17,6 +17,8 @@ import { NgxsModule } from '@ngxs/store';
 import { CourseState } from '@core/store/course/course.state';
 import { ClassViewCreateScheduleComponent } from './components/class-view-create-schedule/class-view-create-schedule.component';
 import { HomeworkModule } from '@modules/homework/homework.module';
+import { StudentModule } from '@modules/student/student.module';
+import { AuthState } from '@core/store/auth/auth.state';
 
 @NgModule({
   declarations: [
@@ -35,9 +37,11 @@ import { HomeworkModule } from '@modules/homework/homework.module';
     SharedModule,
     AgGridModule.withComponents([]),
     NgxsModule.forFeature([
-      CourseState
+      CourseState,
+      AuthState
     ]),
-    HomeworkModule
+    HomeworkModule,
+    StudentModule
   ],
 })
 export class ClassModule {}

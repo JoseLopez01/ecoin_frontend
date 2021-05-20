@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Course } from '@core/models/class.model';
-import { GetCourseById, GetCourses } from '@core/store/course/course.actions';
+import { GetCourseById, GetCourses, GetStudentCourses } from '@core/store/course/course.actions';
 import { CourseState } from '@core/store/course/course.state';
 import { Select, Store } from '@ngxs/store';
 import { GridOptions } from 'ag-grid-community';
@@ -12,6 +12,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./class-view-grid.component.scss']
 })
 export class ClassViewGridComponent implements OnInit {
+
+  @Input() userTypeId!: number;
 
   @Select(CourseState.courses) courses$!: Observable<Course[]>;
 
@@ -55,7 +57,11 @@ export class ClassViewGridComponent implements OnInit {
   }
 
   private getClasses(): void {
-    this.store.dispatch(new GetCourses());
+    if ([3, 2].includes(this.userTypeId)) {
+      this.store.dispatch(new GetCourses());
+    } else {
+      this.store.dispatch(new GetStudentCourses());
+    }
   }
 
 }

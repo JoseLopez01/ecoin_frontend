@@ -10,6 +10,7 @@ export const CONSTANTS = {
   user: {
     userTypes: `${environment.apiUrl}/user-types`,
     semesters: `${environment.apiUrl}/semesters`,
+    base: `${environment.apiUrl}/users`
   },
   weekdays: {
     all: `${environment.apiUrl}/week-days`
@@ -34,5 +35,8 @@ export const CONSTANTS = {
   },
   reward: {
     base: `${environment.apiUrl}/rewards`
+  },
+  students: {
+    base: `${environment.apiUrl}/students`
   }
 };
