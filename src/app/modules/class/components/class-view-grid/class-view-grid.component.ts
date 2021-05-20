@@ -23,7 +23,6 @@ export class ClassViewGridComponent implements OnInit {
 
   ngOnInit(): void {
     this.createGrid();
-    this.getClasses();
   }
 
   private createGrid(): void {
@@ -54,14 +53,6 @@ export class ClassViewGridComponent implements OnInit {
       },
       rowData: []
     };
-  }
-
-  private getClasses(): void {
-    if ([3, 2].includes(this.userTypeId)) {
-      this.store.dispatch(new GetCourses());
-    } else {
-      this.store.dispatch(new GetStudentCourses());
-    }
   }
 
 }

@@ -3,8 +3,9 @@ import { CardOptions } from '@core/models/card.model';
 import { Course } from '@core/models/class.model';
 import { User } from '@core/models/user.model';
 import { AuthState } from '@core/store/auth/auth.state';
+import { GetCourses, GetStudentCourses } from '@core/store/course/course.actions';
 import { CourseState } from '@core/store/course/course.state';
-import { Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -21,10 +22,11 @@ export class ClassViewComponent implements OnInit {
   cardOptions!: CardOptions;
   showHeader = false;
 
-  constructor() { }
+  constructor(private store: Store) { }
 
   ngOnInit(): void {
     this.createCard();
+    this.getUserType();
   }
 
   private createCard(): void {
@@ -41,9 +43,18 @@ export class ClassViewComponent implements OnInit {
       next: user => {
         if (user) {
           this.showHeader = [3, 2].includes(user.usertypeid);
+          this.getClasses(user.usertypeid);
         }
       }
     });
+  }
+
+  private getClasses(userTypeId: number): void {
+    if ([3, 2].includes(userTypeId)) {
+      this.store.dispatch(new GetCourses());
+    } else {
+      this.store.dispatch(new GetStudentCourses());
+    }
   }
 
 }

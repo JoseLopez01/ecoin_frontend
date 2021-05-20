@@ -23,9 +23,7 @@ import { RegisterComponent } from './register/register.component';
     AppRoutingModule,
     ReactiveFormsModule,
     CoreModule,
-<<<<<<< HEAD
-    FormsModule
-=======
+    FormsModule,
     NgxsModule.forRoot([
       AuthState
     ])
@@ -36,7 +34,6 @@ import { RegisterComponent } from './register/register.component';
       useClass: RequestInterceptor,
       multi: true
     }
->>>>>>> d26bbea55bd1eee25d86d6d414930206ae0a6d5d
   ],
   bootstrap: [AppComponent]
 })
