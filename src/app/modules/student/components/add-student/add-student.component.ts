@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '@core/models/user.model';
-import { SearchStudents } from '@core/store/student/student.actions';
+import { AddStudentToCourse, SearchStudents } from '@core/store/student/student.actions';
 import { StudentState } from '@core/store/student/student.state';
 import { Select, Store } from '@ngxs/store';
 import { GridOptions } from 'ag-grid-community';
@@ -67,6 +67,9 @@ export class AddStudentComponent implements OnInit {
       },
       onRowDataChanged: (params): void => {
         params.api.sizeColumnsToFit();
+      },
+      onRowDoubleClicked: (params): void => {
+        this.store.dispatch(new AddStudentToCourse(params.data.userid));
       }
     };
   }

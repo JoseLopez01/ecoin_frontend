@@ -74,7 +74,6 @@ export class AuthState {
         this.zone.run(() => {
           localStorage.setItem('token', response.data.accesstoken);
           this.router.navigate(['/home']);
-          this.store.dispatch(new GetLoggedUser());
         });
       },
     });

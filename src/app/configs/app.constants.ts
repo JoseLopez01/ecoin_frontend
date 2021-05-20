@@ -37,6 +37,7 @@ export const CONSTANTS = {
     base: `${environment.apiUrl}/rewards`
   },
   students: {
-    base: `${environment.apiUrl}/students`
+    base: `${environment.apiUrl}/students`,
+    addToCourse: `${environment.apiUrl}/student-courses`
   }
 };

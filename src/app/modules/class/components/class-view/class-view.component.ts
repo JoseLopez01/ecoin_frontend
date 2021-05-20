@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CardOptions } from '@core/models/card.model';
 import { Course } from '@core/models/class.model';
 import { User } from '@core/models/user.model';
+import { GetLoggedUser } from '@core/store/auth/auth.actions';
 import { AuthState } from '@core/store/auth/auth.state';
 import { GetCourses, GetStudentCourses } from '@core/store/course/course.actions';
 import { CourseState } from '@core/store/course/course.state';
@@ -22,7 +23,9 @@ export class ClassViewComponent implements OnInit {
   cardOptions!: CardOptions;
   showHeader = false;
 
-  constructor(private store: Store) { }
+  constructor(private store: Store) {
+    this.store.dispatch(new GetLoggedUser());
+  }
 
   ngOnInit(): void {
     this.createCard();

@@ -12,3 +12,8 @@ export interface Schedule {
   weekdayid: number;
   isactive: boolean;
 }
+
+export interface StudentCourse {
+  courseid: number;
+  userid: number;
+}
