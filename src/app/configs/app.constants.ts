@@ -14,6 +14,10 @@ export const CONSTANTS = {
   weekdays: {
     all: `${environment.apiUrl}/week-days`
   },
+  price: {
+    all: `${environment.apiUrl}/prices`,
+    base:`${environment.apiUrl}/prices`
+  },
   class: {
     create: `${environment.apiUrl}/courses`,
     base: `${environment.apiUrl}/courses`,
@@ -24,5 +28,11 @@ export const CONSTANTS = {
   },
   activity: {
     base: `${environment.apiUrl}/activities`
+  },
+  shop: {
+    base: `${environment.apiUrl}/shops`
+  },
+  reward: {
+    base: `${environment.apiUrl}/rewards`
   }
 };

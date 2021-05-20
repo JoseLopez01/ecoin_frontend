@@ -73,7 +73,7 @@ export class CourseState {
   createCourse({}: StateContext<CourseStateModel>, { course }: CreateCourse): void {
     this.courseService.createCourse(course).subscribe({
       next: response => {
-        if (response.status === 200) {
+        if (response.status === 201) {
           this.store.dispatch(new GetCourses());
         }
       }

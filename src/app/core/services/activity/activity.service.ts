@@ -19,4 +19,5 @@ export class ActivityService {
   createActivity(activity: Activity): Observable<Response<any>> {
     return this.httpClient.post<Response<any>>(CONSTANTS.activity.base, activity);
   }
+  
 }
