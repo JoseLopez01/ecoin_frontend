@@ -21,5 +21,8 @@ export const CONSTANTS = {
   },
   schedule: {
     base: `${environment.apiUrl}/schedules`
+  },
+  activity: {
+    base: `${environment.apiUrl}/activities`
   }
 };

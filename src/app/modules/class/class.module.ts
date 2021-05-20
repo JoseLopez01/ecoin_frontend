@@ -16,6 +16,7 @@ import { CreateClassComponent } from './components/create-class/create-class.com
 import { NgxsModule } from '@ngxs/store';
 import { CourseState } from '@core/store/course/course.state';
 import { ClassViewCreateScheduleComponent } from './components/class-view-create-schedule/class-view-create-schedule.component';
+import { HomeworkModule } from '@modules/homework/homework.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ClassViewCreateScheduleComponent } from './components/class-view-create
     AgGridModule.withComponents([]),
     NgxsModule.forFeature([
       CourseState
-    ])
+    ]),
+    HomeworkModule
   ],
 })
 export class ClassModule {}

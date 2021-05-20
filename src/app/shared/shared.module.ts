@@ -4,7 +4,6 @@ import { InputTextIconComponent } from './components/input-text-icon/input-text-
 import { CardComponent } from './components/card/card.component';
 import { ModalDeleteComponent } from './components/modal/modal-delete/modal-delete.component';
 import { ModalLogoutComponent } from './components/modal/modal-logout/modal-logout.component';
-import { ModalCreateActivityComponent } from './components/modal/modal-create-activity/modal-create-activity.component';
 
 
 @NgModule({
@@ -13,14 +12,12 @@ import { ModalCreateActivityComponent } from './components/modal/modal-create-ac
     CardComponent,
     ModalDeleteComponent,
     ModalLogoutComponent,
-    ModalCreateActivityComponent,
   ],
   imports: [CommonModule],
   exports: [InputTextIconComponent,
     CardComponent,
     ModalDeleteComponent,
     ModalLogoutComponent,
-    ModalCreateActivityComponent,
   ],
 })
 export class SharedModule {}

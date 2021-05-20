@@ -23,4 +23,8 @@ export class ClassViewInfoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onTabChanged(tab: TABS): void {
+    this.selectedTab = tab;
+  }
+
 }
