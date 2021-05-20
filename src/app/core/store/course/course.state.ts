@@ -3,7 +3,7 @@ import { Course } from '@core/models/class.model';
 import { WeekDay } from '@core/models/weekday.model';
 import { ClassService } from '@core/services/class/class.service';
 import { State, Action, StateContext, Selector, Store } from '@ngxs/store';
-import { CreateCourse, CreateCourseSchedule, GetCourseById, GetCourses, GetWeekDays } from './course.actions';
+import { CreateCourse, CreateCourseSchedule, GetCourseById, GetCourses, GetStudentCourses, GetWeekDays } from './course.actions';
 
 export class CourseStateModel {
   public selectedCourse!: Course | null;
@@ -99,6 +99,15 @@ export class CourseState {
             this.store.dispatch(new GetCourseById(selected.courseid));
           }
         }
+      }
+    });
+  }
+
+  @Action(GetStudentCourses)
+  getStudentCourses({ patchState }: StateContext<CourseStateModel>): void {
+    this.courseService.getStudentCourse().subscribe({
+      next: response => {
+        patchState({ courses: response.data });
       }
     });
   }

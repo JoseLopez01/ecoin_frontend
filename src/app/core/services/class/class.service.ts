@@ -33,4 +33,8 @@ export class ClassService {
     return this.httpClient.post<Response<any>>(`${CONSTANTS.schedule.base}`, schedule);
   }
 
+  getStudentCourse(): Observable<Response<Course>> {
+    return this.httpClient.get<Response<Course>>(`${CONSTANTS.user.base}/courses`);
+  }
+
 }
